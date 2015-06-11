@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+
+  <title>Leaderboard</title>
+
+  <h1>Leaderboard (Read Array and Order List)</h1>
+    
+  <p id="ordered-list"></p>
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script type="script.js">
+  var data = [
+    { name: 'Ryan', points: 14},
+    { name: 'Colin', points: 7},
+    { name: 'Tania', points: 9},
+    { name: 'Nick', points: 21}
+  ];
+
+  var leaderboard2 = function(data) {
+    return data.sort(function(a,b){return b.points-a.points;})
+  }
+
+  function liCreate(name,points) {
+    var li = $('<li>'+name+'</li>');
+    li.append('<span>'+points+'</span>');
+  }
+
+  $(document).ready(function() {
+    var sorted = leaderboard2(data);
+    for (var i=0; i<sorted.length; i++) {
+      $('body').append('<div><p>'+sorted[i].name+' '+sorted[i].points+'</p></div>')
+    }
+    
+  })
+</script>
+</body>
+</html>
